@@ -20,5 +20,17 @@ namespace PipelineWpfApp
         {
             InitializeComponent();
         }
+
+        private void DisplayButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (HelloButton.IsChecked == true)
+            {
+                ShowBox.Text = "Hello!";
+            } 
+            else if (GoodbyeButton.IsChecked == true)
+            {
+                ShowBox.Text = "Goodbye!";
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PipelineWpfApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+daeb9adc96fa2ef5dbebc3a3239364fb64abd414")]
 [assembly: System.Reflection.AssemblyProductAttribute("PipelineWpfApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PipelineWpfApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

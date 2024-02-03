@@ -3,11 +3,9 @@ C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpf
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Debug\net8.0-windows\PipelineWpfApp.runtimeconfig.json
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Debug\net8.0-windows\PipelineWpfApp.dll
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Debug\net8.0-windows\PipelineWpfApp.pdb
-C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp_MarkupCompile.cache
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp_MarkupCompile.lref
-C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp.g.resources
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp.AssemblyInfoInputs.cache
@@ -18,3 +16,6 @@ C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpf
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp.pdb
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp.genruntimeconfig.cache
 C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\ref\PipelineWpfApp.dll
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\PipelineWpfApp.sourcelink.json
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\Greetings.g.cs
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\obj\Debug\net8.0-windows\Greetings.baml
