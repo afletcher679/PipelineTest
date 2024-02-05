@@ -35,8 +35,8 @@ steps:
     
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.Repository.LocalPath)\publish'
-    contents: '**'
+    sourceFolder: '$(Agent.WorkFolder)\2\s\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows'
+    contents: '*.exe'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
