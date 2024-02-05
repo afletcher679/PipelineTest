@@ -1,0 +1,5 @@
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish\PipelineWpfApp.exe
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish\PipelineWpfApp.dll
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish\PipelineWpfApp.deps.json
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish\PipelineWpfApp.runtimeconfig.json
+C:\Users\aflet\source\repos\afletcher679\PipelineTest\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish\PipelineWpfApp.pdb
