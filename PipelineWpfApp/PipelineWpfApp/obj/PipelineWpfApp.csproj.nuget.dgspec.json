@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aflet\\source\\repos\\afletcher679\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj": {}
+    "C:\\Users\\aflet\\source\\repos\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aflet\\source\\repos\\afletcher679\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj": {
+    "C:\\Users\\aflet\\source\\repos\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aflet\\source\\repos\\afletcher679\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj",
+        "projectUniqueName": "C:\\Users\\aflet\\source\\repos\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj",
         "projectName": "PipelineWpfApp",
-        "projectPath": "C:\\Users\\aflet\\source\\repos\\afletcher679\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj",
+        "projectPath": "C:\\Users\\aflet\\source\\repos\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\PipelineWpfApp.csproj",
         "packagesPath": "C:\\Users\\aflet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aflet\\source\\repos\\afletcher679\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\obj\\",
+        "outputPath": "C:\\Users\\aflet\\source\\repos\\PipelineTest\\PipelineWpfApp\\PipelineWpfApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
