@@ -28,11 +28,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Agent.WorkFolder)\2\s\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows'
@@ -48,4 +43,4 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'drop'
-    downloadPath: 'C:\Desktop\PipelineTest'
+    downloadPath: 'C:\Users\tester\Desktop\PipelineTest'
