@@ -20,6 +20,8 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
+    - name: Set Execution Policy
+      run: Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
