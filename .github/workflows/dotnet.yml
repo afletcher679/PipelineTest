@@ -26,6 +26,6 @@ jobs:
     - name: check powershell version
       run: $host.Version
     - name: Restore dependencies
-      run: dotnet restore PipelineWpfApp.sln
+      run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
     - name: Build
       run: dotnet build --no-restore
