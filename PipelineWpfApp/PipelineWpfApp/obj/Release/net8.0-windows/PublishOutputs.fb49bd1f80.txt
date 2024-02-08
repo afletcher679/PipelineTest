@@ -1,0 +1,5 @@
+C:\Users\aflet\Desktop\PipelineTest\drop\PipelineWpfApp.exe
+C:\Users\aflet\Desktop\PipelineTest\drop\PipelineWpfApp.dll
+C:\Users\aflet\Desktop\PipelineTest\drop\PipelineWpfApp.deps.json
+C:\Users\aflet\Desktop\PipelineTest\drop\PipelineWpfApp.runtimeconfig.json
+C:\Users\aflet\Desktop\PipelineTest\drop\PipelineWpfApp.pdb
