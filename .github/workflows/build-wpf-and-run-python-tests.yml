@@ -1,0 +1,87 @@
+# This workflow will build a .NET project, download the .exe as an artifact, 
+# and run the python tests
+
+name: Build and Download WPF, Run Python Tests
+
+on:
+  push:
+    branches: [ "main" ]
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+    
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: powershell allow...
+      shell: cmd
+      run: powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+   
+    - name: check powershell version
+      run: $host.Version
+   
+    - name: Restore dependencies
+      run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
+   
+    - name: Build the WPF App
+      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore --configuration Release
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: wpf-app-exe
+        path: PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish
+ 
+  download:
+    needs: build
+    name: Download WPF App
+    runs-on: self-hosted
+    steps:
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: wpf-app-exe
+        path: C:\Users\tester\Desktop\PipelineTestGH
+
+  setup_python_311:
+    needs: download
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+  run_test_1:
+    needs: setup_python_311
+    runs-on: self-hosted
+    steps:
+    - name: Test_1 with pytest
+      run: |
+        pytest PipelineWpfApp/PythonTests/test_1.py
+  run_test_test_app_opens:
+    needs: setup_python_311
+    runs-on: self-hosted
+    steps:
+    - name: Test_app_opens with pytest
+      run: |
+        pytest PipelineWpfApp/PythonTests/test_app_opens.py::TestAppUi::test_app_opens
+  run_test_test_select_goodbye_see_message:
+    needs: setup_python_311
+    runs-on: self-hosted
+    steps:
+    - name: Test_select_goodbye_see_message with pytest
+      run: |
+        pytest PipelineWpfApp/PythonTests/test_app_opens.py::TestAppUi::test_select_goodbye_see_message
