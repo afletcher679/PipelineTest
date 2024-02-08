@@ -28,4 +28,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore
