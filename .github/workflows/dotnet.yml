@@ -29,3 +29,13 @@ jobs:
       run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
     - name: Build
       run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore
+  download:
+      needs: build
+      name: Download WPF App
+      runs-on: self-hosted
+      steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: wpf-app-exe
+          path: C:\Users\tester\Desktop\PipelineTestGH
