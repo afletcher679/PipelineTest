@@ -1,0 +1,41 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Build .NET 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: powershell allow...
+      shell: cmd
+      run: powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+    - name: check powershell version
+      run: $host.Version
+    - name: Restore dependencies
+      run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
+    - name: Build
+      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore
+  download:
+      needs: build
+      name: Download WPF App
+      runs-on: self-hosted
+      steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: wpf-app-exe
+          path: C:\Users\tester\Desktop\PipelineTestGH
