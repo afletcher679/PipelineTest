@@ -8,7 +8,7 @@ import os
 windows = []
 parent_dir = os.path.dirname(os.getcwd())
 images_dir = os.path.join(parent_dir, 'wpfApp_screenshots')
-
+testing_image_dir   =os.path.join(os.getcwd(), 'PipelineWpfApp', 'wpfApp_screenshots')
 
 class TestAppUi(unittest.TestCase):
 
@@ -46,12 +46,12 @@ class TestAppUi(unittest.TestCase):
             self.fail(f'{image_path} could not be found with 90% confidence.')
 
     def get_display_button_position(self):
-        display_button_image_path = os.path.join(images_dir, 'display_button.PNG')
+        display_button_image_path = os.path.join(testing_image_dir, 'display_button.PNG')
         x, y = self.find_image_90_confidence(display_button_image_path)
         return x, y
 
     def get_goodbye_button_position(self):
-        goodbye_image_path = os.path.join(images_dir, 'goodbye_unselected.PNG')
+        goodbye_image_path = os.path.join(testing_image_dir, 'goodbye_unselected.PNG')
         x, y = self.find_image_90_confidence(goodbye_image_path)
         return x, y
 
@@ -69,7 +69,7 @@ class TestAppUi(unittest.TestCase):
         display_button_position = self.get_display_button_position()
         pyautogui.click(display_button_position[0], display_button_position[1])
 
-        goodbye_image_path = os.path.join(images_dir, 'goodbye_message.PNG')
+        goodbye_image_path = os.path.join(testing_image_dir, 'goodbye_message.PNG')
         result = pyautogui.locateOnWindow(goodbye_image_path, 'Greetings', confidence=0.9)
         self.assertIsNotNone(result)
 
