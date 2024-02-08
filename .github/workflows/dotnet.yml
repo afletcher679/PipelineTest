@@ -15,9 +15,9 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     - name: powershell allow...
@@ -27,15 +27,20 @@ jobs:
       run: $host.Version
     - name: Restore dependencies
       run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
-    - name: Build
-      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore
+    - name: Build the WPF App
+      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore --configuration Release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: wpf-app-exe
+        path: PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish
   download:
       needs: build
       name: Download WPF App
       runs-on: self-hosted
       steps:
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wpf-app-exe
           path: C:\Users\tester\Desktop\PipelineTestGH
