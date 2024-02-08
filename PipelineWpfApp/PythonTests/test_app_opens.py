@@ -14,7 +14,7 @@ class TestAppUi(unittest.TestCase):
 
     @staticmethod
     def start_app():
-        subprocess.Popen('C:\\Users\\tester\\Desktop\\PipelineTest\\drop\\PipelineWpfApp.exe')
+        subprocess.Popen('C:\\Users\\tester\\Desktop\\PipelineTestGH\\PipelineWpfApp.exe')
         time.sleep(3)
         global windows
         windows = pygetwindow.getWindowsWithTitle("Greetings")
