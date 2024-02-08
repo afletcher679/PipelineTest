@@ -45,4 +45,4 @@ jobs:
     steps:
     - name: Test_select_goodbye_see_message with pytest
       run: |
-        pytest test_app_opens.py::TestAppUi::test_select_goodbye_see_message
+        pytest PipelineWpfApp/PythonTests/test_app_opens.py::TestAppUi::test_select_goodbye_see_message
