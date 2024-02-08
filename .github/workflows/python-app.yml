@@ -13,10 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  run_python_tests:
-
+  setup_python_311:
     runs-on: self-hosted
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.11
@@ -27,6 +25,24 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest
-    - name: Test with pytest
+  run_test_1:
+    needs: setup_python_311
+    runs-on: self-hosted
+    steps:
+    - name: Test_1 with pytest
       run: |
-        pytest
+        pytest PipelineWpfApp/PythonTests/test_1.py
+  run_test_test_app_opens:
+    needs: setup_python_311
+    runs-on: self-hosted
+    steps:
+    - name: Test_app_opens with pytest
+      run: |
+        pytest PipelineWpfApp/PythonTests/test_app_opens.py::TestAppUi::test_app_opens
+  run_test_test_select_goodbye_see_message:
+    needs: setup_python_311
+    runs-on: self-hosted
+    steps:
+    - name: Test_select_goodbye_see_message with pytest
+      run: |
+        pytest test_app_opens.py::TestAppUi::test_select_goodbye_see_message
