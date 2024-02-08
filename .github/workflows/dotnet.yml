@@ -27,8 +27,13 @@ jobs:
       run: $host.Version
     - name: Restore dependencies
       run: dotnet restore PipelineWpfApp\PipelineWpfApp.sln
-    - name: Build
-      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore
+    - name: Build the WPF App
+      run: dotnet build PipelineWpfApp\PipelineWpfApp.sln --no-restore --configuration Release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: wpf-app-exe
+        path: PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows\publish
   download:
       needs: build
       name: Download WPF App
