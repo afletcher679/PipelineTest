@@ -5,22 +5,27 @@ import pygetwindow
 import time
 import os
 
-process = None
 windows = []
 parent_dir = os.path.dirname(os.getcwd())
-testing_images_dir = os.path.join(os.getcwd(), 'PipelineWpfApp', 'wpfApp_screenshots')
-local_images_dir = os.path.join(parent_dir, 'wpfApp_screenshots')
+images_dir = os.path.join(parent_dir, 'wpfApp_screenshots')
 
 
 class TestAppUi(unittest.TestCase):
+
     @staticmethod
     def start_app():
-        global process
-        process = subprocess.Popen('C:\\Users\\tester\\Desktop\\PipelineTest\\drop\\PipelineWpfApp.exe')
+        subprocess.Popen('C:\\Users\\tester\\Desktop\\PipelineTest\\drop\\PipelineWpfApp.exe')
         time.sleep(3)
         global windows
         windows = pygetwindow.getWindowsWithTitle("Greetings")
-        if len(windows) == 1:
+        matching_windows = len(windows)
+        if matching_windows == 1:
+            return True
+        elif matching_windows > 1:
+            while matching_windows != 1:
+                windows[matching_windows - 1].close()
+                windows = pygetwindow.getWindowsWithTitle("Greetings")
+                matching_windows = len(windows)
             return True
 
     def test_app_opens(self):
@@ -41,12 +46,12 @@ class TestAppUi(unittest.TestCase):
             self.fail(f'{image_path} could not be found with 90% confidence.')
 
     def get_display_button_position(self):
-        display_button_image_path = os.path.join(testing_images_dir, 'display_button.PNG')
+        display_button_image_path = os.path.join(images_dir, 'display_button.PNG')
         x, y = self.find_image_90_confidence(display_button_image_path)
         return x, y
 
     def get_goodbye_button_position(self):
-        goodbye_image_path = os.path.join(testing_images_dir, 'goodbye_unselected.PNG')
+        goodbye_image_path = os.path.join(images_dir, 'goodbye_unselected.PNG')
         x, y = self.find_image_90_confidence(goodbye_image_path)
         return x, y
 
@@ -55,7 +60,7 @@ class TestAppUi(unittest.TestCase):
         print(pyautogui.size())
 
     def test_select_goodbye_see_message(self):
-        self.get_screen_res()
+        self.test_app_opens()
         self.move_window_to_start_position()
 
         goodbye_select_position = self.get_goodbye_button_position()
@@ -64,7 +69,7 @@ class TestAppUi(unittest.TestCase):
         display_button_position = self.get_display_button_position()
         pyautogui.click(display_button_position[0], display_button_position[1])
 
-        goodbye_image_path = os.path.join(testing_images_dir, 'goodbye_message.PNG')
+        goodbye_image_path = os.path.join(images_dir, 'goodbye_message.PNG')
         result = pyautogui.locateOnWindow(goodbye_image_path, 'Greetings', confidence=0.9)
         self.assertIsNotNone(result)
 

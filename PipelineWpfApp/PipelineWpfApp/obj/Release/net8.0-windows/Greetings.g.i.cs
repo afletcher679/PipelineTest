@@ -85,7 +85,7 @@ namespace PipelineWpfApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PipelineWpfApp;component/greetings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PipelineWpfApp;V1.0.0.0;component/greetings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Greetings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
