@@ -1,0 +1,72 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- main
+- releases/*
+
+pool:
+  name: Default
+
+stages:
+  - stage: Build_App_and_Download
+    jobs:
+    - job: Build_App
+      variables:
+        solution: '**/*.sln'
+        buildPlatform: 'Any CPU'
+        buildConfiguration: 'Release'
+
+      steps:
+      - task: NuGetToolInstaller@1
+
+      - task: NuGetCommand@2
+        inputs:
+          restoreSolution: '$(solution)'
+
+      - task: VSBuild@1
+        inputs:
+          solution: '$(solution)'
+          msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+          platform: '$(buildPlatform)'
+          configuration: '$(buildConfiguration)'
+
+      - task: CopyFiles@2
+        inputs:
+          sourceFolder: '$(Agent.WorkFolder)\2\s\PipelineWpfApp\PipelineWpfApp\bin\Release\net8.0-windows'
+          contents: '**'
+          targetFolder: '$(Build.ArtifactStagingDirectory)'
+          
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathToPublish: '$(Build.ArtifactStagingDirectory)'
+          artifactName: drop
+
+      - task: DownloadBuildArtifacts@1
+        inputs:
+          buildType: 'current'
+          downloadType: 'single'
+          artifactName: 'drop'
+          downloadPath: 'C:\Users\tester\Desktop\PipelineTest'
+  
+  - stage: Run_PythonTests
+    jobs:
+    - job: Run_Python_Tests
+      steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.11'
+          architecture: 'x64'
+          disableDownloadFromRegistry: true
+
+      - script: |
+          echo %CD%
+        displayName: 'Print current directory'
+      - script: |
+          pip install pytest pytest-azurepipelines
+        displayName: 'Install pytest'
+      - script: |
+          pytest -v
+        displayName: 'Run Python Tests with verbose output'
